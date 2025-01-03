@@ -12,15 +12,14 @@ type application struct {
 	Domain string
 }
 
-func main() {
+func main () {
 	var app application
 
 	app.Domain = "example.com"
 
-	log.Println("stating application on port 8080")
+	fmt.Println("serving on port", port)
 
-	err := http.ListenAndServe(fmt.Sprintf(":%d",port), app.Routes())
-
+	err := http.ListenAndServe(fmt.Sprintf(":%d", port), app.Routes())
 	if err != nil {
 		log.Fatal(err)
 	}
